@@ -1,0 +1,459 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  /* --- 1. Light Mode Default --- */
+  body {
+    @apply font-sans text-[15px] tracking-normal bg-apple-gray-50 text-apple-gray-900 antialiased;
+    min-height: 100vh;
+  }
+
+  /* --- 2. Dark Mode Styles --- */
+  .dark body {
+    @apply bg-apple-gray-950 text-apple-gray-50;
+  }
+
+  /* --- 3. Table Styles (Theme-Aware) --- */
+  .table {
+    @apply w-full min-w-[640px];
+  }
+
+  .table th {
+    @apply p-4 text-left text-xs font-medium uppercase tracking-[0.2em];
+    @apply text-apple-gray-500 bg-apple-gray-100;
+    @apply dark:text-apple-gray-400 dark:bg-apple-gray-900/60;
+  }
+
+  .table td {
+    @apply p-4 whitespace-nowrap text-sm;
+    @apply text-apple-gray-900 border-b border-apple-gray-200;
+    @apply dark:text-apple-gray-100 dark:border-apple-gray-800;
+  }
+
+  .table tbody tr:last-child td {
+    @apply border-b-0;
+  }
+
+  .table tbody tr {
+    @apply transition-colors;
+  }
+
+  .table tbody tr:hover {
+    @apply bg-apple-gray-100/60;
+    @apply dark:bg-apple-gray-900/70;
+  }
+
+  /* --- 4. NavLink Styles (Theme-Aware) --- */
+  .nav-link {
+    @apply px-3 py-2 rounded-md text-sm font-medium;
+    @apply text-apple-gray-600 hover:bg-apple-gray-100 hover:text-apple-gray-900;
+    /* Light */
+    @apply dark:text-apple-gray-300 dark:hover:bg-apple-gray-800 dark:hover:text-white;
+    /* Dark */
+    @apply transition-colors;
+  }
+
+  .nav-link.active {
+    @apply bg-apple-gray-100 text-apple-gray-900;
+    /* Light */
+    @apply dark:bg-apple-gray-900 dark:text-white;
+    /* Dark */
+  }
+
+  /* Mantine-forward Design System - Light Mode */
+  :root {
+    /* Mantine Blue */
+    --apple-blue: #228BE6;
+    --apple-blue-hover: #339AF0;
+
+    /* Backgrounds */
+    --background: 210 17% 98%;
+    --foreground: 210 11% 15%;
+
+    /* Cards */
+    --card: 0 0% 100%;
+    --card-foreground: 210 11% 15%;
+
+    /* Popover */
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 11% 15%;
+
+    /* Primary (Mantine Blue) */
+    --primary: 210 79% 52%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary */
+    --secondary: 210 14% 96%;
+    --secondary-foreground: 210 11% 15%;
+
+    /* Muted */
+    --muted: 210 14% 96%;
+    --muted-foreground: 210 9% 45%;
+
+    /* Accent */
+    --accent: 210 14% 96%;
+    --accent-foreground: 210 11% 15%;
+
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders & Inputs */
+    --border: 210 16% 90%;
+    --input: 210 16% 90%;
+    --ring: 210 79% 52%;
+
+    /* Charts */
+    --chart-1: 210 79% 52%;
+    --chart-2: 145 63% 42%;
+    --chart-3: 24 94% 53%;
+    --chart-4: 266 70% 60%;
+    --chart-5: 340 82% 62%;
+
+    --radius: 8px;
+  }
+
+  /* Mantine-forward Design System - Dark Mode */
+  .dark {
+    --background: 220 13% 12%;
+    --foreground: 210 17% 95%;
+
+    --card: 220 13% 14%;
+    --card-foreground: 210 17% 95%;
+
+    --popover: 220 13% 14%;
+    --popover-foreground: 210 17% 95%;
+
+    --primary: 210 79% 52%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 13% 16%;
+    --secondary-foreground: 210 17% 95%;
+
+    --muted: 220 13% 16%;
+    --muted-foreground: 210 7% 65%;
+
+    --accent: 220 13% 16%;
+    --accent-foreground: 210 17% 95%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 25%;
+    --input: 220 13% 25%;
+    --ring: 210 79% 52%;
+  }
+}
+
+
+/* --- 5. Apple Surface System --- */
+.page-shell {
+  @apply min-h-screen bg-apple-gray-50 text-apple-gray-900;
+  @apply dark:bg-apple-gray-950 dark:text-apple-gray-100;
+}
+
+.page-header {
+  @apply flex flex-col gap-2;
+}
+
+.page-title {
+  @apply text-3xl md:text-4xl font-semibold tracking-[-0.01em] text-apple-gray-900;
+  @apply dark:text-white;
+}
+
+.page-subtitle {
+  @apply text-sm md:text-base text-apple-gray-600;
+  @apply dark:text-apple-gray-400;
+}
+
+.section {
+  @apply rounded-xl border border-apple-gray-200 bg-white shadow-apple-md;
+  @apply dark:border-apple-gray-800/70 dark:bg-apple-gray-900/80 dark:shadow-apple-lg;
+  @apply transition-shadow duration-300;
+}
+
+.section:hover {
+  @apply shadow-apple-lg dark:shadow-apple-xl;
+}
+
+.section-title {
+  @apply text-xl md:text-2xl font-semibold tracking-[-0.005em] text-apple-gray-900;
+  @apply dark:text-white;
+}
+
+.section-kicker {
+  @apply text-xs font-semibold text-apple-gray-500;
+  @apply dark:text-apple-gray-400;
+}
+
+.section-description {
+  @apply text-sm text-apple-gray-600;
+  @apply dark:text-apple-gray-400;
+}
+
+/* --- 5b. Apple Layout System --- */
+.page {
+  @apply max-w-wide mx-auto px-4 sm:px-6 lg:px-12 py-8 sm:py-10 lg:py-14 space-y-10 sm:space-y-12;
+}
+
+.page-hero {
+  @apply section p-6 sm:p-8 lg:p-12;
+}
+
+.page-hero-content {
+  @apply flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8;
+}
+
+.page-hero-eyebrow {
+  @apply text-xs uppercase tracking-[0.3em] text-apple-gray-500;
+  @apply dark:text-apple-gray-400;
+}
+
+.page-hero-title {
+  @apply text-3xl sm:text-4xl md:text-6xl font-semibold tracking-[-0.02em] text-apple-gray-900;
+  @apply dark:text-white;
+}
+
+.page-hero-subtitle {
+  @apply text-base md:text-lg text-apple-gray-500 max-w-2xl;
+  @apply dark:text-apple-gray-400;
+}
+
+.page-section {
+  @apply section p-6 lg:p-8;
+}
+
+.page-grid-2 {
+  @apply grid grid-cols-1 lg:grid-cols-2 gap-8;
+}
+
+.page-grid-3 {
+  @apply grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8;
+}
+
+.page-grid-4 {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
+}
+
+.card {
+  @apply bg-white border border-apple-gray-200 rounded-xl shadow-apple-md;
+  @apply dark:bg-apple-gray-900/80 dark:border-apple-gray-800/80 dark:shadow-apple-lg;
+  @apply transition-all duration-300 ease-out;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  @apply shadow-apple-lg dark:shadow-apple-xl;
+}
+
+.card-title {
+  @apply font-display text-lg font-semibold tracking-[-0.005em] mb-4;
+  @apply text-apple-gray-900 dark:text-white;
+}
+
+/* --- 6. Button Styles (Remain the same, they are context-agnostic) --- */
+.button-primary {
+  @apply bg-apple-blue text-white px-4 py-2 rounded-md font-semibold;
+  @apply hover:bg-apple-blue-light focus:outline-none focus:ring-2 focus:ring-apple-blue/30 focus:ring-offset-2 focus:ring-offset-apple-gray-50;
+  @apply dark:focus:ring-offset-apple-gray-950 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.button-secondary {
+  @apply bg-apple-gray-100 text-apple-gray-900 px-4 py-2 rounded-md font-semibold;
+  @apply hover:bg-apple-gray-200 focus:outline-none focus:ring-2 focus:ring-apple-gray-300/60 focus:ring-offset-2 focus:ring-offset-apple-gray-50;
+  @apply dark:bg-apple-gray-800 dark:text-apple-gray-100 dark:hover:bg-apple-gray-700 dark:focus:ring-offset-apple-gray-950;
+  @apply transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+/* --- 7. Form Input Styles (Theme-Aware) --- */
+/* RENAMED from .form-input-dark */
+.form-input {
+  @apply w-full p-3 pl-10 bg-white border border-apple-gray-300 rounded-md placeholder-apple-gray-500;
+  @apply dark:bg-apple-gray-900 dark:border-apple-gray-700 dark:text-apple-gray-100 dark:placeholder-apple-gray-500;
+  @apply focus:outline-none focus:ring-2 focus:ring-apple-blue/30 focus:border-apple-blue;
+  @apply transition-all duration-300;
+  @apply disabled:bg-apple-gray-100 disabled:text-apple-gray-500 disabled:cursor-not-allowed;
+  @apply dark:disabled:bg-apple-gray-900 dark:disabled:text-apple-gray-500;
+}
+
+/* Input without icon */
+.form-input-no-icon {
+  @apply w-full p-3 bg-white border border-apple-gray-300 rounded-md placeholder-apple-gray-500;
+  @apply dark:bg-apple-gray-900 dark:border-apple-gray-700 dark:text-apple-gray-100 dark:placeholder-apple-gray-500;
+  @apply focus:outline-none focus:ring-2 focus:ring-apple-blue/30 focus:border-apple-blue;
+  @apply transition-all duration-300;
+}
+
+/* Auth page social button */
+.social-button {
+  @apply w-full flex items-center justify-center gap-3 px-4 py-2.5 border rounded-md;
+  @apply text-apple-gray-700 bg-white hover:bg-apple-gray-100 border-apple-gray-200;
+  @apply dark:text-apple-gray-200 dark:bg-apple-gray-900 dark:hover:bg-apple-gray-800 dark:border-apple-gray-800;
+  @apply transition-all duration-300;
+  @apply focus:outline-none focus:ring-2 focus:ring-apple-blue/30 focus:ring-offset-2 focus:ring-offset-apple-gray-50;
+  @apply dark:focus:ring-offset-apple-gray-950;
+}
+
+/* --- 8. Misc Styles (Theme-Aware) --- */
+.progress-bar-container {
+  @apply w-full rounded-full h-2 overflow-hidden;
+  @apply bg-gray-200;
+  /* Light */
+  @apply dark:bg-gray-700/50;
+  /* Dark */
+}
+
+.progress-bar {
+  @apply h-2 rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-green-400;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  @apply w-1.5;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 dark:bg-gray-600 rounded-full;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500 dark:bg-gray-500;
+}
+
+.shadow-glow {
+  @apply dark:shadow-[0_0_15px_rgba(34,_197,_94,_0.4)];
+}
+
+/* Dropdown text color */
+select option {
+  @apply bg-white text-black;
+  /* Light */
+  @apply dark:bg-gray-900 dark:text-white;
+  /* Dark */
+}
+
+/* --- 9. Datepicker (Theme-Aware) --- */
+.react-datepicker-wrapper {
+  @apply w-full;
+}
+
+.react-datepicker-popper {
+  @apply z-50;
+}
+
+/* Main calendar container */
+.react-datepicker {
+  @apply font-sans text-sm shadow-lg;
+  @apply bg-white border-gray-200 border rounded-lg;
+  /* Light */
+  @apply dark:bg-gray-900 dark:border-gray-700 dark:shadow-[0_20px_40px_rgba(0,0,0,0.4)];
+  /* Dark */
+}
+
+.react-datepicker__triangle {
+  @apply hidden;
+}
+
+/* Header */
+.react-datepicker__header {
+  @apply border-b-0 rounded-t-lg pt-3;
+  @apply bg-gray-50;
+  /* Light */
+  @apply dark:bg-gray-800/50 dark:border-gray-700;
+  /* Dark */
+}
+
+.react-datepicker__current-month,
+.react-datepicker__day-name {
+  @apply font-semibold;
+  @apply text-gray-900;
+  /* Light */
+  @apply dark:text-gray-200;
+  /* Dark */
+}
+
+.react-datepicker__day-name {
+  @apply text-gray-500;
+  /* Light */
+  @apply dark:text-gray-400;
+  /* Dark */
+}
+
+/* Day cells */
+.react-datepicker__day {
+  @apply rounded-full;
+  @apply text-gray-800;
+  /* Light */
+  @apply dark:text-gray-300;
+  /* Dark */
+}
+
+.react-datepicker__day:hover {
+  @apply rounded-full;
+  @apply bg-gray-200;
+  /* Light */
+  @apply dark:bg-gray-700;
+  /* Dark */
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--in-range {
+  @apply bg-blue-600 text-white rounded-full font-semibold;
+  @apply dark:bg-cyan-500 dark:text-black;
+  /* Dark */
+}
+
+.react-datepicker__day--keyboard-selected {
+  @apply bg-blue-700 rounded-full;
+  @apply dark:bg-cyan-600;
+  /* Dark */
+}
+
+.react-datepicker__day--disabled {
+  @apply text-gray-400;
+  /* Light */
+  @apply dark:text-gray-600;
+  /* Dark */
+}
+
+/* Navigation */
+.react-datepicker__navigation-icon::before {
+  @apply border-gray-600;
+  /* Light */
+  @apply dark:border-gray-300;
+  /* Dark */
+}
+
+/* --- 10. Premium VFX --- */
+.group:hover .group-hover\:shimmer {
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+
+  100% {
+    transform: translateX(200%) skewX(-15deg);
+  }
+}
+
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

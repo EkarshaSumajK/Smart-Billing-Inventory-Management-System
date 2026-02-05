@@ -1,0 +1,9 @@
+Flask
+flask-cors
+flask-pymongo
+pandas
+python-dotenv
+gunicorn
+prophet
+matplotlib
+mlxtend
